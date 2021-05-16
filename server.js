@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const database = require('./database');
 const createError = require('http-errors');
 
-//Connect to Database
+//Connect to Database naka
 mongoose.Promise = global.Promise;
 mongoose.connect(database.db, {
     useNewUrlParser: true,
