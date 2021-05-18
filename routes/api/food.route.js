@@ -23,7 +23,7 @@ foodRoute.route('/').get((req,res,next)=>{
 // Config multer to upload images----------------------------------------------------
 const storage = multer.diskStorage({ 
     destination: function(req,file,cb){  //set Destination
-        cb(null, './client/public/FoodImage');
+        cb(null, './static/FoodImage');
     },
     filename: function(req,file,cb){     // set filename
         cb(null, file.originalname);
@@ -84,7 +84,7 @@ foodRoute.route('/delete-food/:id').delete((req,res,next)=>{
             
             if(data.imgName){
                 console.log(data.imgName);
-                deleteFile(`./client/public/FoodImage/${data.imgName}`);
+                deleteFile(`./static/FoodImage/${data.imgName}`);
             };
             res.status(200).json({
                 msg:data
@@ -113,7 +113,7 @@ foodRoute.route('/update-food/:id').put((req,res,next)=>{
             
             if(data.imgName){
                 console.log(data.imgName);
-                deleteFile(`./client/public/FoodImage/${data.imgName}`);
+                deleteFile(`./static/FoodImage/${data.imgName}`);
             }
             res.json(data);
             console.log('Food successfully updated');

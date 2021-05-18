@@ -4,5 +4,5 @@
 
 
 module.exports = {
-    db: 'mongodb+srv://Pree:food@foodcluster.rbsiz.mongodb.net/FoodProject?retryWrites=true&w=majority'
+    db: 'mongodb://Pree:food@foodcluster-shard-00-00.rbsiz.mongodb.net:27017,foodcluster-shard-00-01.rbsiz.mongodb.net:27017,foodcluster-shard-00-02.rbsiz.mongodb.net:27017/FoodProject?ssl=true&replicaSet=atlas-ep41ss-shard-0&authSource=admin&retryWrites=true&w=majority'
 }

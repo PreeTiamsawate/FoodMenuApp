@@ -3,6 +3,8 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const database = require('./database');
 const createError = require('http-errors');
+require('dotenv').config();
+const path = require('path')
 
 //Connect to Database naka
 mongoose.Promise = global.Promise;
@@ -22,13 +24,15 @@ const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());// cross server between port 8080 and 4000
+app.use(express.static('static'));
+// app.use(express.static(__dirname+'/client/public/'));
 
 //API connect to routes
 app.use('/api', foodAPI);
 
 //CREATE PORT
 const port = process.env.PORT || 4000;
-const server = app.listen(port, () => {
+app.listen(port, () => {
     console.log('Connected to port' + port)
 });
 
