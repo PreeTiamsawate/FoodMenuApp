@@ -32,6 +32,15 @@ app.use('/api', foodAPI);
 
 //CREATE PORT
 const port = process.env.PORT || 4000;
+
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static(__dirname+"/dist/"));
+    app.get("*", (req,res)=>{
+        res.sendFile(__dirname + "/dist/index.html")
+    })
+}
+
+
 app.listen(port, () => {
     console.log('Connected to port' + port)
 });
